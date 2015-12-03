@@ -57,6 +57,7 @@ var controller = {
     this.addCatToView();
     this.addClick();
     this.addFormtoView();
+    this.formCancel();
     this.setCatNameAndURL();
   },
   getCatName: function(i) {
@@ -87,13 +88,19 @@ var controller = {
   },
   addFormtoView: function() {
     $(document).on('click', '.adminBtn', function(event) {
-      var currentClass = $('.adminBtn > label').attr('class');
+      // var currentClass = $('.adminBtn > label').attr('class');
       if ($('.adminBtn > label').hasClass('active')) {
         $('form').show();
       }
       else {
         $('form').hide();
       }
+    });
+  },
+  formCancel: function() {
+    $(document).on('click', '.adminFormCancel', function(event) {
+      $('.adminBtn > label').removeClass('active');
+      $('form').hide();
     });
   },
   setCatNameAndURL: function() {
@@ -155,7 +162,7 @@ var view = {
   renderAdminForm: function(i) {
     var htmlString = '';
     htmlString = '<form class="form-horizontal col-md-6"><div class="form-group"><label for="inputCatName">Cat name</label><input type="text" class="form-control" id="inputCatName" placeholder="' + controller.getCatName(i) + '"></div><div class="form-group"><label for="inputCatURL">Cat image URL</label><input type="text" class="form-control" id="inputCatURL" placeholder="' + controller.getCatURL(i) + '"></div></div><button type="cancel" class="btn btn-default adminFormCancel">Cancel</button><button type="submit" class="btn btn-primary adminFormSubmit">Submit</button></form>';
-    $('.catImgSection').append(htmlString);
+    $('.kittyImages').append(htmlString);
     $('#inputCatName').val($('#inputCatName').attr('placeholder'));
     $('#inputCatURL').val($('#inputCatURL').attr('placeholder'));
   }
