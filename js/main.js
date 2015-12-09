@@ -10,7 +10,6 @@ Cat.prototype.getCatName = function() {
 Cat.prototype.getCatImage = function() {
   return this.catImage;
 };
-
 Cat.prototype.setCatName = function(catName) {
   this.name = catName;
 };
