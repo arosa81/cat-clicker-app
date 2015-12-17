@@ -142,7 +142,7 @@ var view = {
     $('.kittyImages').html(htmlString);
   },
   updateCatName: function(i) {
-    $('h3').text(controller.getCatName(i));
+    $('.caption').text(controller.getCatName(i));
   },
   updateCatImage: function(i) {
     $('.catImgSection > img').attr('src', controller.getCatURL(i));
